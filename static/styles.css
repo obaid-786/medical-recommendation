@@ -1,0 +1,193 @@
+/* font */
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap');
+
+/* body*/
+* {
+    margin: 0;
+    padding: 0;
+    --light: hsl(0, 0%, 100%);
+    --background: linear-gradient(to right bottom, hsl(236, 50%, 50%), hsl(195, 50%, 50%));
+    background-image: url();
+}
+
+/* ----------------navbar------------ */
+nav {
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+#mid_sec{
+    width: 576px;
+    height: 100px;
+
+}
+#container_mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 500px;
+    background-color: brown;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+#search {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+
+}
+
+#search input {
+    height: 20px;
+    width: 120px;
+    margin-right: 20px;
+    border: 3px solid;
+    padding: 10px;
+    border-radius: 5px;
+    background: #FFD700;
+}
+
+#search button {
+    height: 20px;
+    width: 80px;
+    margin-right: 20px;
+    border: 3px solid;
+    border-radius: 5px;
+    background: #FFD700;
+    padding-inline: 18px;
+    padding-top: 5px;
+    padding-bottom: 17px;
+
+}
+
+#inp_1 {
+    height: 20px;
+    width: 250px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#btn_2 {
+    height: 33px;
+    margin: 10px;
+    width: 125px;
+    border: 3px solid green;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+#btn_1 {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.btn_1{
+    height: 40px;
+    width: 100px;
+    margin: auto 10px;
+    border: 3px solid green;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: #C0A000;
+}
+.btn_1:hover,
+.btn_1:focus {
+    border-color: hsla(0, 0%, 100%, .6);
+    transform: translateY(-.2rem);
+}
+#result {
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+
+    background-color: brown;
+}
+
+.btn_3 {
+    height: 40px;
+    width: 80px;
+    margin: auto 10px;
+    border: 3px solid green;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.btn_3:hover,
+.btn_3:focus {
+    border-color: hsla(0, 0%, 100%, .6);
+    transform: translateY(-.2rem);
+}
+
+/* ------------------------result--------------- */
+.popup {
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    color: var(--light);
+    background: var(--background);
+    border: 6 px;
+    padding: 0 30px 30px;
+    box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    border-radius: 50%;
+    width: 100px;
+    margin-top: -50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+
+<body>
+    <!-- ---------------------------navbar---------------------- -->
+    <nav>
+        <!-- 1 -->
+        <div class="logo">
+            <img id="logo" src="/static/logo.png" alt="">
+        </div>
+        <!-- 2 -->
+        <div id="mid_sec">
+            <div>
+
+                <p>Lorem in eligendi neque obcaecati totam laboriosam reiciendis repellat. Expedita quam quae eos
+                    cupiditate.</p>
+            </div>
+            <div id="btn_1" >
+                <button class="btn_1" type="button">HOME</button>
+                <button class="btn_1" type="button">DEVELOPER</button>
+                <button class="btn_1" type="button">CONTACT</button>
+                <button class="btn_1" type="button">ABOUT</button>
+                <button class="btn_1" type="button">HOME</button>
+            </div>
+        </div>
+        <!-- 3 -->
+        <div id="search">
+
+            <input type="search" placeholder="search here">
+            <button type="button">search</button>
+
+        </div>
+    </nav>
+    <!-- ----------------------input Setoin------------------------- -->
+    <h1>our Recommendation system</h1>
+    <div id="container_mid">
+        <form action="/predict" method="post">
+            <div>
+                <label for="symptoms">enter your symptoms</label><br>
+                <input id="inp_1" type="text" name="symptoms"
+                    placeholder="enter symptoms like itching ,coughing,skin _rash"><br>
+                <button id="btn_2" type="submit">Recommendation</button>
+                <!-- <button id="reset" type="reset"></button> -->
+            </div>
+        </form>
+    </div>
+    <p>{{predicted_disease}}</p>
+    <p>{{dis_dics}}</p>
+    <p>{{dis_pre}}</p>
+    <p>{{dis_med}}</p>
+    <p>{{dis_wrkout}}</p>
+    <p>{{dis_die}}</p>
+    <!-- --------------------------output section--------------------- -->
+    <h1>our AI system suggest you</h1>
+    <div id="result">
+        <button class="btn_3" id="popup1-btn" onclick="openPopup('popup1')" type="button">Disease</button>
+        <button class="btn_3" id="popup2-btn" onclick="openPopup('popup2')" type="button">Description</button>
+        <button class="btn_3" id="popup3-btn" onclick="openPopup('popup3')" type="button">Medication</button>
+        <button class="btn_3" id="popup4-btn" onclick="openPopup('popup4')" type="button">Precaution</button>
+        <button class="btn_3" id="popup5-btn" onclick="openPopup('popup5')" type="button">Workout</button>
+        <button class="btn_3" id="popup6-btn" onclick="openPopup('popup6')" type="button">Diet</button>
+    </div>
+    <div class="popup" id="popup1">
+        <img src="/static/disease (1).png" alt="loading..">
+        <h2>Potential Disease Identified</h2>
+        <p>Based on your symptoms, we’ve determined the following condition:</p>
+        <p>{{predicted_disease}}</p>
+        <button type="button" onclick="closePopup('popup1')">OK</button>
+    </div>
+    <div class="popup" id="popup2">
+        <img src="/static/description.png" alt="loading..">
+        <h2>Disease Description</h2>
+        <p> Here is a brief overview of the identified condition:<p>
+            <p>{{dis_desc}}</p>
+        <button type="button" onclick="closePopup('popup2')">OK</button>
+    </div>
+    <div class="popup" id="popup3">
+        <img src="/static/medication.png" alt="loading..">
+        <h2>Recommended Medications</h2>
+        <p>The following medications are suggested for your condition</p>
+        <ul>
+            {% for i in dis_med %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+        <button type="button" onclick="closePopup('popup3')">OK</button>
+    </div>
+    <div class="popup" id="popup4">
+        <img src="/static/precaution.png" alt="loading..">
+        <h2>Precautionary Measures</h2>
+        <p>Please follow these precautions to manage your condition effectively:<p>
+            <ul>
+                {% for i in dis_pre %}
+                <li>{{i}}</li>
+                {% endfor %}
+            </ul>
+        <button type="button" onclick="closePopup('popup4')">OK</button>
+    </div>
+    <div class="popup" id="popup5">
+        <img src="/static/workout.png" alt="loading..">
+        <h2>Fitness Recommendations</h2>
+        <p>A suitable workout plan for your health condition is as follows:</p>
+        <ul>
+            {% for i in dis_wrkout %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+        <button type="button" onclick="closePopup('popup5')">OK</button>
+    </div>
+    <div class="popup" id="popup6">
+        <img src="/static/diet.png" alt="loading..">
+        <h2>Dietary Suggestions</h2>
+        <p>Here is a personalized diet plan tailored for your condition:</p>
+        <ul>
+            {% for i in dis_die %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+        <button type="button" onclick="closePopup('popup6')">OK</button>
+    </div>
+    <script>
+        
+        function openPopup(popupId) {
+            document.getElementById(popupId).classList.add("open-popup");
+
+        }
+        function closePopup(popupId){
+            document.getElementById(popupId).classList.remove("open-popup");
+        }
+    </script>
+</body>
+
+</html>
