@@ -1,7 +1,7 @@
 # MediRec: AI-Powered Medical Symptom Analysis and Recommendation System
 A Flask-based web application that uses a Machine Learning model to predict potential diseases from user-reported symptoms and provides a comprehensive care plan including descriptions, precautions, medications, diets, and workouts.
 
-#Overview
+# Overview
 MediRec is an intelligent web application designed to act as a preliminary medical advisory tool. Users can input a list of symptoms they are experiencing. The application leverages a pre-trained Support Vector Classifier (SVC) model to predict the most likely disease. Based on the prediction, it then fetches and displays a detailed care plan from its knowledge base, which includes:
 
 A description of the disease.
@@ -13,7 +13,7 @@ Common medications used (Note: Always consult a real doctor).
 Recommended dietary plans.
 
 Suggested workout routines.
-#Features
+# Features
 Symptom Analysis: Accepts multiple symptoms as comma-separated input.
 
 AI-Powered Prediction: Utilizes a robust SVC model for accurate disease prediction.
@@ -24,7 +24,7 @@ Responsive Web Interface: Built with HTML/CSS (and likely Bootstrap/Jinja2 templ
 
 Informational Pages: Includes About, Contact, Developer, and Blog pages for a complete user experience.
 
-#Tech Stack
+# Tech Stack
 Backend Framework: Flask (Python)
 
 Machine Learning:
