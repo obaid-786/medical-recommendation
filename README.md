@@ -40,3 +40,12 @@ pickle for model serialization & loading
 Frontend: HTML5, CSS3, JavaScript (with Jinja2 templating)
 
 Data Storage: Flat-file databases (CSV files acting as a knowledge base)
+
+
+graph LR
+A[User] -->|Enters Symptoms| B(Flask Web App)
+B -->|Preprocesses Input| C(SVC Model)
+C -->|Returns Prediction| B
+B -->|Queries Knowledge Base CSVs| D[(CSV Datasets)]
+D -->|Returns Description, Precautions, etc.| B
+B -->|Renders Results| A
