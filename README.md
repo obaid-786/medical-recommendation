@@ -41,11 +41,26 @@ Frontend: HTML5, CSS3, JavaScript (with Jinja2 templating)
 
 Data Storage: Flat-file databases (CSV files acting as a knowledge base)
 
+# Project Architecture & Workflow
+The user inputs symptoms on the web page and submits the form.
 
-graph LR
-A[User] -->|Enters Symptoms| B(Flask Web App)
-B -->|Preprocesses Input| C(SVC Model)
-C -->|Returns Prediction| B
-B -->|Queries Knowledge Base CSVs| D[(CSV Datasets)]
-D -->|Returns Description, Precautions, etc.| B
-B -->|Renders Results| A
+The Flask app receives the symptoms (request.form).
+
+The symptoms are converted into a binary feature vector using a pre-defined symptoms_dict.
+
+This vector is fed into the pre-trained svc.pkl model.
+
+The model returns a predicted disease number, which is mapped to a disease name using diseases_list.
+
+The helper function helper() queries all CSV datasets for information related to the predicted disease.
+
+The retrieved data (description, precautions, etc.) is passed to the HTML template.
+
+The template is rendered and displayed to the user with the results.
+
+# Installation & Local Setup
+Prerequisites:
+
+Python 3.8+
+
+pip (Python package manager)
