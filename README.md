@@ -64,3 +64,28 @@ Prerequisites:
 Python 3.8+
 
 pip (Python package manager)
+# Usage
+Navigate to the home page.
+
+In the symptoms input field, enter your symptoms separated by commas (e.g., itching, skin_rash, vomiting).
+
+For best results, use the exact symptom names from the symptoms_dict.
+
+Click the "Predict" button.
+
+Review the predicted disease and the extensive recommendations provided.
+# Model Training (Brief)
+Algorithm: Support Vector Classifier (SVC)
+
+Input Features: A binary vector representing the presence (1) or absence (0) of 132 symptoms.
+
+Output Label: One of 41 possible diseases.
+
+The model was trained on a separate dataset (not provided here) to learn the mapping between symptom combinations and diseases. The trained model is then serialized using pickle for later use in the application.
+
+# API Reference
+The application is primarily server-rendered (using Jinja2 templates). However, the main endpoint is:
+
+POST /predict: Accepts form data with a 'symptoms' key. Returns a rendered HTML page with the prediction results.
+# Disclaimer
+This application is a prototype and a portfolio project. It is not developed by medical professionals. The predictions made by this system are based on a machine learning model and may be inaccurate. The information provided regarding medications, diets, and workouts is generic and must not be considered medical advice. Always consult a qualified healthcare professional for diagnosis and treatment.
